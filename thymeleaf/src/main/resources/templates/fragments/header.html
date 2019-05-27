@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+<th:block th:fragment="header">
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" th:href="@{/}">
+                    <img th:src="@{/img/logo.png}" alt="memorynotfound logo"/>
+                </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a th:href="@{/}">Accueil</a>
+                    </li>
+                    <li class="active" sec:authorize="!isAuthenticated()">  
+                        <a href="/user" th:href="@{/user}">Connexion</a>  
+                    </li>  
+                    <li class="active">
+                        <a sec:authorize="isAuthenticated()" href="/user" th:href="@{/user}">Mon compte</a>
+                    </li>
+                     <li class="active">
+                        <a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin" th:href="@{/admin}">Admin</a>
+                    </li>
+                    <li class="active">
+                        <a th:href="@{/productList}">Nos produits</a>
+                    </li>
+						<li sec:authorize="isAuthenticated()" class="active">
+                    	<a th:href="@{/logout}">Deconnexion</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</th:block>
+</body>
+</html>

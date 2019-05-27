@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Liste des commandes</title>
+</head>
+<body>
+	  <h1>Bienvenue dans l'espace administrateur</h1>
+      <br/><br/>
+
+      <h2>Liste des commandes</h2>
+      <br/><br/>
+      <div layout:fragment="content" th:remove="tag">
+      <!-- 
+         <table>
+		      <tr>
+		        <th>DATE</th>
+		        <th>Client</th>
+		        <th>TOTAL</th>
+		        <th></th>
+		      </tr>
+		      <tr th:each="o : ${orders}" th:class="${oStat.odd}? 'odd'">
+		        <td th:text="${#calendars.format(o.date,'dd/MMM/yyyy')}">13 jan 2011</td>
+		        <td th:text="${o.user.name}">Frederic Tomato</td>
+		        <td th:text="${#aggregates.sum(o.orderLines.{purchasePrice * amount})}">23.32</td>
+		        <td>
+		          <a href="details.html" th:href="@{/order/details(orderId=${o.id})}">view</a>
+		        </td>
+		      </tr>
+		  </table>
+		-->
+      </div>
+   </body>
+</html>

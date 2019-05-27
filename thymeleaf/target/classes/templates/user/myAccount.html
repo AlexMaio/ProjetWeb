@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Mon Compte</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <h1>Bienvenue sur mon compte</h1>
+    <BR/>
+    <h2 th:utext="${inscriptionMessage}"></h2>
+    <p><a href="/" th:href="@{/}">Retour à la page d'accueil</a></p>
+</div>
+</body>
+</html>

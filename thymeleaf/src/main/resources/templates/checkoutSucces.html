@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Merci pour votre commande</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/checkout.css}"/>
+</head>
+<body>
+  	<div layout:fragment="content" th:remove="tag">
+  	
+  	<div class="row cart-head">
+	     <div class="container">
+		     <div class="row">
+		         <p></p>
+		     </div>
+		     <div class="row">
+                 <div style="display: table; margin: auto; width:50%; margin-left:34%;">
+                     <span class="step step_complete"> <a href="#" class="check-bc">Panier</a> <span class="step_line step_complete"> </span> <span class="step_line backline"> </span> </span>
+                     <span class="step step_complete"> <a href="#" class="check-bc">&ensp;Payement</a><span class="step_line step_complete"></span><span class="step_line backline"></span></span>
+                     <span class="step step_complete" style="width:22%;"><a href="#" class="check-bc">&ensp;Confirmation</a></span>
+                 </div>
+             </div>
+		     <div class="row">
+		         <p></p>
+		     </div>
+	     </div>
+    </div>    
+  	
+  	<h1>Merci pour votre commande!</h1>
+    <BR/>
+    <h2>Nous vous contacterons par mail dans les plus brefs délais pour vous informer de l'expédition de votre colis.</h2><BR/>
+    <p><a href="/" th:href="@{/}">Retour à la page d'accueil</a></p>
+  	<BR/><BR/>
+	<BR/><BR/>
+  	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Liste des commandes</title>
+</head>
+<body>
+      <div layout:fragment="content" th:remove="tag">
+      	<h1>Bienvenue dans l'espace administrateur</h1>
+      	
+      	<h2>Liste des commandes</h2>
+      	<br/>
+      	
+		<table border="1">
+            <tr style="text-align:center;">
+        	   <th style="text-align:center;">Numéro commande</th>
+               <th style="text-align:center;">Numéro acheteur</th>
+               <th style="text-align:center;">Numéro de téléphone</th>
+               <th style="text-align:center;">Adresse</th>
+               <th style="text-align:center;">Ville</th>
+               <th style="text-align:center;">Code Postal</th>
+               <th style="text-align:center;">Total</th>
+               <th style="text-align:center;">Statut</th>
+               <th style="text-align:center;">Détail de la commande (Utilisateur, Payement, Produits)</th>
+            </tr>
+            <tr th:each="order : ${order}" style="text-align:center;">
+               <td th:utext="${order.id}">...</td>
+               <td th:utext="${order.idUser}">...</td>
+               <td th:utext="${order.phoneNumber}">...</td>
+               <td th:utext="${order.address}">...</td>
+               <td th:utext="${order.city}">...</td>
+               <td th:utext="${order.zipCode}">...</td>
+               <td th:utext="${order.total} + ' &euro;'">...</td>
+               <td th:utext="${order.statut}">...</td>
+               <td>
+		        	<a th:href="@{${'detailOrder/' + order.id}}" data-tip="Quick View" class="social"><i class="fa fa-search glyphicon glyphicon-search"></i></a>
+		       </td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

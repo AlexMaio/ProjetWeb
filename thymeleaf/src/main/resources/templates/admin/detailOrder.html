@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title th:utext="'Detail de la commande ' + ${order.id}">...</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/checkout.css}"/>
+</head>
+<body>
+    <div layout:fragment="content" th:remove="tag">
+    <script src="https://use.fontawesome.com/c560c025cf.js"></script>
+    
+      	<h1 th:utext="'Detail de la commande numéro ' + ${order.id}">...</h1>
+      	
+      	<h2>Les produits commandés</h2>
+      	<br/>
+      	
+		<table border="1">
+            <tr style="text-align:center;">
+        	   <th style="text-align:center;">Image</th>
+               <th style="text-align:center;">Nom</th>
+               <th style="text-align:center;">Prix</th>
+            </tr>
+            <tr th:each="product : ${product}" style="text-align:center;">
+               <td class="col-sm-2 hidden-xs"><img th:src="@{${'/img/product/' + product.image}}" alt="produit picture" class="img-responsive"/></td>
+               <td th:utext="${product.nom}">...</td>
+               <td th:utext="${product.prix} + ' &euro;'">...</td>
+            </tr>
+         </table>
+		
+		<h2>L'acheteur</h2>
+      	<br/>
+      	
+      	<table border="1" style="margin:auto; width:100%;">
+            <tr style="text-align:center;">
+        	   <th style="text-align:center;">Id</th>
+               <th style="text-align:center;">Nom</th>
+               <th style="text-align:center;">Prénom</th>
+               <th style="text-align:center;">Email</th>
+            </tr>
+            <tr style="text-align:center;">
+               <td th:utext="${user.id}">...</td>
+               <td th:utext="${user.firstName}">...</td>
+               <td th:utext="${user.lastName}">...</td>
+               <td th:utext="${user.email}">...</td>
+            </tr>
+         </table>
+      	
+      	<h2>Le paiement</h2>
+      	<br/>
+      	
+      	<table border="1" style="margin:auto; width:100%;">
+            <tr style="text-align:center;">
+        	   <th style="text-align:center;">Titulaire de la carte</th>
+               <th style="text-align:center;">Numéro de la carte</th>
+               <th style="text-align:center;">Cryptogramme visuel</th>
+               <th style="text-align:center;">Date d'expiration</th>
+            </tr>
+            <tr style="text-align:center;">
+               <td th:utext="${order.cardOwner}">...</td>
+               <td th:utext="${order.cardNumber}">...</td>
+               <td th:utext="${order.cardCode}">...</td>
+               <td th:utext="${order.cardMonth} + ' / ' + ${order.cardYear}">...</td>
+            </tr>
+        </table>
+        <br/>
+      	
+      	<p>
+	      <a th:href="@{/orderList}">Retourner à la liste des commandes</a>
+	    </p>
+	    
+	   	<br/><br/><br/>
+	</div>
+</body>
+</html>

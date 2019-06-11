@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Liste des produits</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+      <div layout:fragment="content" th:remove="tag">
+
+      
+      	<h1>Bienvenue dans l'espace administrateur</h1>
+      	
+      	<h2>Liste des produits</h2>
+      	<br/>
+      	
+		<table border="1">
+            <tr style="text-align:center;">
+        	   <th style="text-align:center;">Image</th>
+               <th style="text-align:center;">Nom</th>
+               <th style="text-align:center;">Prix</th>
+               <th style="text-align:center;">Supprimer</th>
+            </tr>
+            <tr th:each="product : ${product}" style="text-align:center;">
+               <td class="col-sm-2 hidden-xs"><img th:src="@{${'/img/product/' + product.image}}" alt="produit picture" class="img-responsive"/></td>
+               <td th:utext="${product.nom}">...</td>
+               <td th:utext="${product.prix} + ' &euro;'">...</td>
+               <td>
+		        	<a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>	
+		       </td>
+            </tr>
+         </table>
+         
+         <br/><br/><br/><br/>
+      </div>
+   </body>
+</html>

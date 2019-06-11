@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Liste des utilisateurs</title>
+</head>
+<body>
+      <div layout:fragment="content" th:remove="tag">
+      	<h1>Bienvenue dans l'espace administrateur</h1>
+	
+	    <h2>Liste des utilisateurs inscrits</h2>
+	    <br/>
+      
+         <table border="1" style="margin:auto; width:100%;">
+            <tr style="text-align:center;">
+               <th style="text-align:center;">Nom</th>
+               <th style="text-align:center;">Prénom</th>
+               <th style="text-align:center;">Email</th>
+               <th style="text-align:center;">Role</th>
+            </tr>
+            <tr th:each ="user : ${user}" style="text-align:center;">
+               <td th:utext="${user.firstName}">...</td>
+               <td th:utext="${user.lastName}">...</td>
+               <td th:utext="${user.email}">...</td>
+               <td th:utext="${user.role}">...</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

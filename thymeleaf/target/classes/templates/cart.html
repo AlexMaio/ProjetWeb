@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Panier</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/checkout.css}"/>
+</head>
+<body>
+
+     <div layout:fragment="content" th:remove="tag">
+     <script src="https://use.fontawesome.com/c560c025cf.js"></script>
+		
+	<div class="container">
+	
+	<div class="row cart-head">
+                <div class="container">
+                <div class="row">
+                    <p></p>
+                </div>
+                <div class="row">
+                    <div style="display: table; margin: auto; width:50%; margin-left:34%;">
+                        <span class="step step_complete"> <a href="#" class="check-bc">Panier</a> <span class="step_line step_complete"> </span> <span class="step_line backline"> </span> </span>
+                        <span class="step"> <a th:href="@{/checkout}" class="check-bc">&ensp;Payement</a><span class="step_line "></span><span class="step_line backline"></span></span>
+                        <span class="step_thankyou check-bc step_complete" style="width:22%;">&ensp;Confirmation</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <p></p>
+                </div>
+                </div>
+            </div>
+            
+	<table id="cart" class="table table-hover table-condensed">
+				<thead>
+				<tr>
+					<th style="width:50%">Produits</th>
+					<th style="width:10%">Prix</th>
+					<th style="width:8%">Quantité</th>
+					<th style="width:22%" class="text-center">Sous-total</th>
+					<th style="width:10%"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each ="product : ${product}">
+						<td data-th="Product">
+							<div class="row">
+								<div class="col-sm-2 hidden-xs"><img th:src="@{${'/img/product/' + product.image}}" alt="produit picture" class="img-responsive"/></div>
+								<div class="col-sm-10">
+									<h4 class="nomargin" th:utext="${product.nom}">...</h4>
+									<span>Statut: </span><span class="text-success"><strong>En Stock</strong></span>
+								</div>
+							</div>
+						</td>
+						<td data-th="Price" th:utext="${product.prix} + ' &euro;'">...</td>
+						<td data-th="Quantity" class="text-center">1
+							<!-- <input type="number" class="form-control text-center" value="1"> -->
+						</td>
+						<td data-th="Subtotal" class="text-center" th:utext="${product.prix} + ' &euro;'">...</td>
+						<td class="actions" data-th="">
+							<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+							<a th:href="@{${'removeToCart/' + product.id}}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>								
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr class="visible-xs">
+						<td class="text-center bold" th:utext="${total > 0} ? ${total} + ' &euro;' : 'Panier vide'">...</td>
+					</tr>
+					<tr>
+						<td><a th:href="@{/productList}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continuer Shopping</a></td>
+						<td colspan="2" class="hidden-xs"></td>
+						<td class="hidden-xs text-center bold" th:utext="${total > 0} ? 'Total ' + ${total} + ' &euro;' : 'Panier vide'">...</td>
+						<td th:if="${total > 0}">
+							<a th:href="@{/checkout}" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+		
+		<BR/><BR/>
+		<BR/><BR/>
+		<BR/><BR/>
+	</div> 
+</body>
+</html>

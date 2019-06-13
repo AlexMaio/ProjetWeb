@@ -88,24 +88,24 @@
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Adresse:</strong></div>
                                 <div class="col-md-12">
-                                    <input type="text" name="address" class="form-control" value="" />
+                                    <input type="text" name="address" class="form-control" value="" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Ville:</strong></div>
                                 <div class="col-md-12">
-                                    <input type="text" name="city" class="form-control" value="" />
+                                    <input type="text" name="city" class="form-control" value="" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Code postal:</strong></div>
                                 <div class="col-md-12">
-                                    <input type="text" name="zipCode" class="form-control" value="" />
+                                    <input type="text" name="zipCode" class="form-control" value="" pattern="\d{5,5}" maxlength="5" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Numéro de téléphone:</strong></div>
-                                <div class="col-md-12"><input type="text" name="phoneNumber" class="form-control" value="" /></div>
+                                <div class="col-md-12"><input type="text" name="phoneNumber" class="form-control" value="" required/></div>
                             </div>
                         </div>
                     </div>
@@ -116,15 +116,15 @@
                         <div class="panel-body">
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Titulaire de le carte:</strong></div>
-                                <div class="col-md-12"><input type="text" class="form-control" name="cardOwner" value="" /></div>
+                                <div class="col-md-12"><input type="text" class="form-control" name="cardOwner" value="" required/></div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Numéro de le carte:</strong></div>
-                                <div class="col-md-12"><input type="text" class="form-control" name="cardNumber" value="" /></div>
+                                <div class="col-md-12"><input type="text" class="form-control" name="cardNumber" value="" pattern="\d{16,16}" minlength="16" maxlength="16" required/></div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Cryptogramme Visuel:</strong></div>
-                                <div class="col-md-12"><input type="text" class="form-control" name="cardCode" value="" /></div>
+                                <div class="col-md-12"><input type="text" class="form-control" name="cardCode" value="" pattern=".{3,3}" minlength="3" maxlength="3" required/></div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">

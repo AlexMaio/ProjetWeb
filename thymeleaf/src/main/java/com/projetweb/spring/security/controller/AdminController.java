@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -116,7 +117,14 @@ public class AdminController extends HttpServlet {
 	@GetMapping(value = "/removeProduct/{id}")
     public String removeProduct(@PathVariable String id) {
     	System.out.println("Id du produit supprimé : " + id);
+    	Product product = productDao.findById(Integer.parseInt(id));
     	productDao.deleteId(Integer.parseInt(id));
+    	
+    	//On supprime le fichier
+		Path resourceDirectory = Paths.get("src","main","resources", "static", "img", "product");
+    	File uploads = new File(resourceDirectory.toString());
+		File file = new File(uploads, product.getImage());
+		file.delete();
     	
     	return "redirect:/productsList";
     }
@@ -164,8 +172,9 @@ public class AdminController extends HttpServlet {
 	    		System.out.println("Saved file name : " + nomImage);
 				
 	    		//On enregistre le fichier
-		        File uploads = new File("C:\\Users\\Alexandre\\git\\repository3\\thymeleaf\\src\\main\\resources\\static\\img\\product\\");
-		        File file = new File(uploads, nomImage);
+	    		Path resourceDirectory = Paths.get("src","main","resources", "static", "img", "product");
+		    	File uploads = new File(resourceDirectory.toString());
+	    		File file = new File(uploads, nomImage);
 		        InputStream input = filePart.getInputStream();
 		        Files.copy(input, file.toPath());
 		        

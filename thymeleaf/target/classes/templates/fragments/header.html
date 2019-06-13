@@ -37,8 +37,11 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right flRight">
-                    <li class="active">
-                        <a th:href="@{/cart}">Panier</a>
+                    <li class="active" th:if="${session.cart != null} and ${session.cart.size() > 0}">
+                    	<a th:href="@{/cart}" th:text="'Panier (' + ${session.cart.size()} + ')'">...</a>
+                    </li>
+                    <li class="active" th:if="${session.cart == null} or ${session.cart.size() < 1}">
+                    		<a th:href="@{/cart}">Panier</a>
                     </li>
                 </ul>
             </div>

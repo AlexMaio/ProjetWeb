@@ -26,7 +26,7 @@ public interface ProductDao extends JpaRepository<Product, Integer> {
 	List<Product> findByNomLike(String recherche);
 	
 	@Query(nativeQuery = true,
-            value = "SELECT TOP 3 * FROM Product ORDER BY prix DESC")
+            value = "SELECT TOP 3 * FROM Product ORDER BY prix ASC")
 	public List<Product> carouselIndex();
 	
 	@Transactional

@@ -16,9 +16,9 @@
 	  <div class="container">
 		    <div class="row">
 		        <div class="col-md-3 col-sm-6" th:each ="product : ${product}">
-		            	<input type="hidden" id="idProduct" name="idProduct" value=${product.id}>
+		            <input type="hidden" id="idProduct" name="idProduct" value=${product.id}>
 		           
-		            <div class="product-grid6">
+		            <div class="product-grid6" style="margin-bottom:20%;">
 		                <div class="product-image6">
 		                    <a href="#">
 		                        <img class="pic-1" th:src="@{${'/img/product/' + product.image}}" alt="produit picture">

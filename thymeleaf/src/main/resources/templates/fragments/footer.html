@@ -11,7 +11,7 @@
             	</span>
                 <span sec:authorize="isAuthenticated()" style="display: inline-block;">
                     Connecté en tant que : <span sec:authentication="name"></span> |
-                    Role : <span sec:authentication="principal.authorities"></span> |
+                    <span sec:authentication="principal.authorities"></span> |
                     <a th:href="@{/logout}">Deconnexion</a>
                 </span>
             </p>

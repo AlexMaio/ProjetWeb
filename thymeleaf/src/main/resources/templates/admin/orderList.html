@@ -17,14 +17,14 @@
         	   <th style="text-align:center;">Numéro commande</th>
                <th style="text-align:center;">Numéro acheteur</th>
                <th style="text-align:center;">Numéro de téléphone</th>
-               <th style="text-align:center;">Adresse</th>
-               <th style="text-align:center;">Ville</th>
+               <th style="text-align:center; width:15%;">Adresse</th>
+               <th style="text-align:center; width:15%;">Ville</th>
                <th style="text-align:center;">Code Postal</th>
-               <th style="text-align:center;">Total</th>
-               <th style="text-align:center;">Statut</th>
+               <th style="text-align:center; width:10%;">Total</th>
+               <th style="text-align:center; width:10%;">Statut</th>
                <th style="text-align:center;">Détail de la commande (Utilisateur, Payement, Produits)</th>
             </tr>
-            <tr th:each="order : ${order}" style="text-align:center;">
+            <tr th:each="order : ${order}" style="text-align:center; height:60px;">
                <td th:utext="${order.id}">...</td>
                <td th:utext="${order.idUser}">...</td>
                <td th:utext="${order.phoneNumber}">...</td>
@@ -38,6 +38,7 @@
 		       </td>
             </tr>
          </table>
+         <br/><br/><br/><br/>
       </div>
    </body>
 </html>

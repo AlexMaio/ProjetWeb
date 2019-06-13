@@ -4,6 +4,7 @@
       layout:decorate="~{fragments/layout}">
 <head>
     <title>Liste des utilisateurs</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
       <div layout:fragment="content" th:remove="tag">
@@ -18,14 +19,19 @@
                <th style="text-align:center;">Prénom</th>
                <th style="text-align:center;">Email</th>
                <th style="text-align:center;">Role</th>
+               <th style="text-align:center;">Supprimer</th>
             </tr>
-            <tr th:each ="user : ${user}" style="text-align:center;">
+            <tr th:each ="user : ${user}" style="text-align:center; height:50px;">
                <td th:utext="${user.firstName}">...</td>
                <td th:utext="${user.lastName}">...</td>
                <td th:utext="${user.email}">...</td>
                <td th:utext="${user.role}">...</td>
+               <td>
+		        	<a th:href="@{${'removeUser/' + user.id}}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>	
+		       </td>
             </tr>
          </table>
+         <br/><br/><br/><br/>
       </div>
    </body>
 </html>

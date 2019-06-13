@@ -8,11 +8,15 @@
 </head>
 <body>
       <div layout:fragment="content" th:remove="tag">
-
       
       	<h1>Bienvenue dans l'espace administrateur</h1>
       	
-      	<h2>Liste des produits</h2>
+      	
+      	<h2>Liste des produits
+      	<span>
+      		<a th:href="@{/addProduct}" class="btn btn-success"><i class="fa fa-angle-right"></i> Ajouter un produit</a>
+      	</span>
+      	</h2>
       	<br/>
       	
 		<table border="1">
@@ -27,7 +31,7 @@
                <td th:utext="${product.nom}">...</td>
                <td th:utext="${product.prix} + ' &euro;'">...</td>
                <td>
-		        	<a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>	
+		        	<a th:href="@{${'removeProduct/' + product.id}}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a>	
 		       </td>
             </tr>
          </table>

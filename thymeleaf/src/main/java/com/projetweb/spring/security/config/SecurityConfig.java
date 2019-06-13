@@ -41,7 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                             "/inscription",
                             "/cart",
                             "/addToCart/**",
-                            "/removeToCart/**").permitAll()
+                            "/removeToCart/**",
+                            "/h2-console/**").permitAll()
                     .antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
                     .antMatchers("/admin/**, /user/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
@@ -59,10 +60,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .exceptionHandling()
                     .accessDeniedHandler(accessDeniedHandler);
+        
+        http.csrf().disable();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    	System.out.println("----------------CONFIGURATION---------------------");
     	auth.userDetailsService(inMemoryUserDetailsManager());
     	List<User> users = userDao.findAll();
     	

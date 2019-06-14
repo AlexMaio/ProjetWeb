@@ -239,6 +239,9 @@ public class OrderController {
     			orderDetailDao.save(orderDetail);
     		}
     		
+    		// On vide le panier
+    		session.setAttribute("cart", null);
+    		
     		return "checkoutSucces";
     		
     	}

@@ -120,12 +120,6 @@ public class AdminController extends HttpServlet {
     	Product product = productDao.findById(Integer.parseInt(id));
     	productDao.deleteId(Integer.parseInt(id));
     	
-    	//On supprime le fichier
-		Path resourceDirectory = Paths.get("src","main","resources", "static", "img", "product");
-    	File uploads = new File(resourceDirectory.toString());
-		File file = new File(uploads, product.getImage());
-		file.delete();
-    	
     	return "redirect:/productsList";
     }
 	
